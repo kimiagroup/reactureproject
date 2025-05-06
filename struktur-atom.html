@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Atom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        body {
+            background-image: url('bggg.svg'); /* Ganti dengan path gambar kamu */
+            background-size: cover;
+            background-position: center;
+            overlay: 50px;
+            height: 100vh;
+            width: 100%;
+            margin: 0;
+            font-family:Tahoma;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #caf0f8;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            padding-top: 60px; /* Untuk menyesuaikan dengan navbar fixed */
+        }
+
+        .h2 {
+        background-color: #001c55;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        width: 50%; /* Atur lebar agar lebih proporsional */
+        max-width: 340px; /* Batasi lebar maksimal */
+        padding: auto;
+        margin: auto; /* Membuat elemen tetap di tengah */
+        border-radius: 5px; /* Membuat sudut lebih halus */
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 30px;
+        margin-bottom: -20px;
+        color: #FBFBFB;
+        }
+
+    .p{
+        font-family: tahoma;
+        font-size: 12px;
+        color: white;
+    }
+    .w{
+        color: #001c55;
+    }
+
+    .sim-container {
+    background-color: #0077b6;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%; /* Atur lebar agar lebih proporsional */
+    max-width: 500px; /* Batasi lebar maksimal */
+    padding: auto;
+    margin: auto; /* Membuat elemen tetap di tengah */
+    border-radius: 30px; /* Membuat sudut lebih halus */
+
+}
+
+
+    
+        /* Navbar Styling */
+        .navbar {
+            
+            background-color: #0077b6;
+            height: 60px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 255, 0.2);
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+}
+
+.navbar-links a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    margin-right: 95px; /* Beri jarak antar elemen */
+    font-weight: bold;
+    font-family: Tahoma;
+}
+
+.navbar-links a:hover{
+    color: #ade8f4;  
+}
+
+.navbar-toggler {
+    margin-left: -30px; /* Beri jarak antara About Us dan tombol sidebar */
+}
+
+        
+        .navbar-brand img {
+            margin-right: 10px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .navbar-toggler {
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-right: 75px;
+        }
+        .navbar-toggler:hover {
+            color: #ade8f4;
+        }
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #0077b6;
+            color: white;
+            position: fixed;
+            right: -250px;
+            transition: 0.3s;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+        
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: tahoma;
+        }
+        
+        .sidebar a:hover {
+            background-color: #001c55;
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 900;
+        }
+
+
+
+        .form {
+  margin-bottom: 20px;
+}
+
+input {
+  margin: 5px;
+  padding: 8px;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  background: teal;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: darkcyan;
+}
+
+.atom {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin-top: 20px;
+}
+
+.nucleus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  background: crimson;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.orbit {
+  position: absolute;
+  border: 1px dashed #aaa;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.electron {
+  width: 12px;
+  height: 12px;
+  background: deepskyblue;
+  border-radius: 50%;
+  position: absolute;
+}
+
+    </style>
+    
+</head>
+<body onload="loadPage()">
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+            <img src="LOGO BARU.png" alt="Logo" width="55" height="55">
+            Reacture Project
+        </a>
+        <div class="navbar-links">
+            <a href="index.html">HOME</a>
+            <button class="navbar-toggler" onclick="toggleSidebar()">☰</button>
+        </div>
+    </nav>
+    
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+   
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <a href="struktur-atom.html"><i class="fas fa-atom"></i> Struktur Atom</a>
+            <a href="tabel-periodik.html"><i class="fas fa-table"></i> Tabel Periodik</a>
+            <a href="kalkulator.html"><i class="fas fa-calculator"></i> Kalkulator</a>
+            <a href="asambasa.html"><i class="fas fa-flask"></i> Reaksi Kimia</a>
+        </div>
+    </div>
+
+    
+    <div class="h2">Struktur Atom</div>
+    <div class="sim-container">
+        <div class="form">
+            <input type="text" id="atomName" placeholder="Nama Atom (misal: Oksigen)">
+            <input type="number" id="protons" placeholder="Jumlah Proton">
+            <input type="number" id="neutrons" placeholder="Jumlah Neutron">
+            <input type="number" id="electrons" placeholder="Jumlah Elektron">
+            <button onclick="generateAtom()">Generate</button>
+          </div>
+      
+          <h2 id="displayName">Atom - </h2>
+          <div class="atom">
+            <div class="nucleus" id="nucleus"></div>
+            <div id="orbits"></div>
+          </div>
+      
+    <script>
+       function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            let overlay = document.getElementById("overlay");
+            sidebar.style.right = sidebar.style.right === "0px" ? "-250px" : "0px";
+            overlay.style.display = sidebar.style.right === "0px" ? "block" : "none";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.right = "-250px";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        // Aturan maksimum elektron di setiap orbit
+const maxElectronsPerOrbit = [2, 8, 18, 32];
+
+function generateAtom() {
+  const name = document.getElementById('atomName').value || 'Tidak diketahui';
+  const protons = parseInt(document.getElementById('protons').value) || 0;
+  const neutrons = parseInt(document.getElementById('neutrons').value) || 0;
+  const electrons = parseInt(document.getElementById('electrons').value) || 0;
+
+  // Update tampilan nama atom
+  document.getElementById('displayName').textContent = `Atom - ${name}`;
+
+  // Update nucleus
+  const nucleus = document.getElementById('nucleus');
+  nucleus.innerHTML = `
+    <div>p+: ${protons}</div>
+    <div>n°: ${neutrons}</div>
+  `;
+
+  // Bersihkan orbit lama
+  const orbitsContainer = document.getElementById('orbits');
+  orbitsContainer.innerHTML = '';
+
+  // Membuat orbit dan elektron baru
+  let remainingElectrons = electrons;
+  let orbitRadius = 80;
+  let orbitIndex = 0;
+
+  while (remainingElectrons > 0 && orbitIndex < maxElectronsPerOrbit.length) {
+    const orbit = document.createElement('div');
+    orbit.classList.add('orbit');
+    orbit.style.width = `${orbitRadius}px`;
+    orbit.style.height = `${orbitRadius}px`;
+
+    const electronsInOrbit = Math.min(remainingElectrons, maxElectronsPerOrbit[orbitIndex]);
+
+    for (let i = 0; i < electronsInOrbit; i++) {
+      const electron = document.createElement('div');
+      electron.classList.add('electron');
+      orbit.appendChild(electron);
+    }
+
+    orbitsContainer.appendChild(orbit);
+
+    remainingElectrons -= electronsInOrbit;
+    orbitRadius += 60;
+    orbitIndex++;
+  }
+}
+
+// Animasi elektron berputar
+function animate() {
+  const orbits = document.querySelectorAll('.orbit');
+  orbits.forEach((orbit, index) => {
+    const electrons = orbit.querySelectorAll('.electron');
+    const radius = parseInt(orbit.style.width) / 2;
+    electrons.forEach((electron, i) => {
+      const angle = (Date.now() / (1000 - index * 100)) * (i + 1);
+      const x = Math.cos(angle) * radius;
+      const y = Math.sin(angle) * radius;
+      electron.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+        
+    </script>
+</body>
+</html>
